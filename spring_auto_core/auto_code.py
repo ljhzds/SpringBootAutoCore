@@ -1,17 +1,15 @@
 # coding: utf-8
 import os
 
-import click
-
-from load_config import get_all_config
-from read_config_excel import get_tables
-from directory import create_app_directory
-from init_create_sql import init
-from model import gen_model
-from mapper import gen_mapper_xml
-from dao import gen_dao
-from service_and_controller import gen_service_and_controller
-from properties_pom import gen_configs_and_mainclass
+from spring_auto_core.load_config import get_all_config
+from spring_auto_core.read_config_excel import get_tables
+from spring_auto_core.directory import create_app_directory
+from spring_auto_core.init_create_sql import init
+from spring_auto_core.model import gen_model
+from spring_auto_core.mapper import gen_mapper_xml
+from spring_auto_core.dao import gen_dao
+from spring_auto_core.service_and_controller import gen_service_and_controller
+from spring_auto_core.properties_pom import gen_configs_and_mainclass
 
 
 def spring_gen(config_xlsx_path):
