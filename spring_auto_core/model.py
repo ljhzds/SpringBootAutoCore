@@ -1,6 +1,6 @@
 # coding: utf-8
 import os
-from utils import tablename_to_classname, columnname_to_valname
+from .utils import tablename_to_classname, columnname_to_valname
 
 
 def gen_model(tables, config):

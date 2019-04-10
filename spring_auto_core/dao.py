@@ -1,6 +1,6 @@
 # coding: utf-8
 import os
-from utils import tablename_to_classname
+from .utils import tablename_to_classname
 
 
 def gen_dao(tables, config):

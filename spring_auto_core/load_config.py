@@ -1,6 +1,6 @@
 # coding: utf-8
-from read_config_excel import read_app_config
-from secret_remote import JDBC_URL, DB_DRIVER, DB_PASSWD, DB_USER
+from .read_config_excel import read_app_config
+from .secret_remote import JDBC_URL, DB_DRIVER, DB_PASSWD, DB_USER
 
 # 工程名
 APP_NAME = 'pySpringAutoDemo'

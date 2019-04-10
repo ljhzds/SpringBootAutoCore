@@ -2,7 +2,7 @@
 from collections import namedtuple
 from openpyxl import load_workbook
 
-from utils import columnname_to_valname
+from .utils import columnname_to_valname
 
 Table = namedtuple('Table', ['name', 'cn_name', 'dao_namespace', 'model_class'])
 Column = namedtuple('Column',

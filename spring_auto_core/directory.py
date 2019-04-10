@@ -2,7 +2,7 @@
 import os
 import pathlib
 
-from load_config import APP_NAME, CODE_SAVE_ROOT, APP_PACKAGE_NAME
+from .load_config import APP_NAME, CODE_SAVE_ROOT, APP_PACKAGE_NAME
 
 
 def create_app_directory(app_package_name, save_root):

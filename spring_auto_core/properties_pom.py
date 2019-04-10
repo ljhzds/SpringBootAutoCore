@@ -1,6 +1,6 @@
 # coding: utf-8
 import os
-from utils import get_jinja_env
+from .utils import get_jinja_env
 
 
 def gen_configs_and_mainclass(config):

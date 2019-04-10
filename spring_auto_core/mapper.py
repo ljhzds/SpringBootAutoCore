@@ -1,7 +1,7 @@
 # coding: utf-8
 import os
 
-from utils import tablename_to_classname, get_jinja_env
+from .utils import tablename_to_classname, get_jinja_env
 
 
 def colname_to_sqlcondition(col_java_name):
