@@ -1,0 +1,46 @@
+package {{APP_PACKAGE_NAME}}.controller;
+
+import {{APP_PACKAGE_NAME}}.model.{{model_class_name}};
+import {{APP_PACKAGE_NAME}}.service.{{model_class_name}}Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+@RestController
+public class {{model_class_name}}RestController {
+
+	@Autowired
+	private {{model_class_name}}Service {{model_class_name}}Service;
+
+	@RequestMapping(value = "/api/{{API_VERSION}}/{{model_class_name}}/{{pkey | cover_mess}}", method = RequestMethod.GET)
+	public {{model_class_name}} findOne{{model_class_name}}(@PathVariable("{{pkey}}") {{key_type}} {{pkey}}) {
+		return {{model_class_name}}Service.find{{model_class_name}}ByKey({{pkey}});
+	}
+
+	@RequestMapping(value = "/api/{{API_VERSION}}/{{model_class_name}}", method = RequestMethod.GET)
+	public List<{{model_class_name}}> find{{model_class_name}}s() {
+		return {{model_class_name}}Service.find{{model_class_name}}s();
+	}
+
+	@RequestMapping(value = "/api/{{API_VERSION}}/{{model_class_name}}", method = RequestMethod.POST)
+	public void create{{model_class_name}}(@RequestBody {{model_class_name}} {{model_class_name}}) {
+		{{model_class_name}}Service.save{{model_class_name}}({{model_class_name}});
+	}
+
+	@RequestMapping(value = "/api/{{API_VERSION}}/{{model_class_name}}", method = RequestMethod.PUT)
+	public void modify{{model_class_name}}(@RequestBody {{model_class_name}} {{model_class_name}}) {
+		{{model_class_name}}Service.update{{model_class_name}}({{model_class_name}});
+	}
+
+	@RequestMapping(value = "/api/{{API_VERSION}}/{{model_class_name}}/{{pkey | cover_mess}}", method = RequestMethod.DELETE)
+	public void modify{{model_class_name}}(@PathVariable("{{pkey}}") {{key_type}} {{pkey}}) {
+		{{model_class_name}}Service.delete{{model_class_name}}({{pkey}});
+	}
+}

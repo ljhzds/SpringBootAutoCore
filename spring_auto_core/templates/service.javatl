@@ -1,0 +1,47 @@
+package {{APP_PACKAGE_NAME}}.service;
+
+import java.util.List;
+
+import {{APP_PACKAGE_NAME}}.model.{{model_class_name}};
+
+public interface {{model_class_name}}Service {
+
+	/**
+	 * 获取列表
+	 *
+	 * @return
+	 */
+	List<{{model_class_name}}> find{{model_class_name}}s();
+
+	/**
+	 * 根据key，查询
+	 *
+	 * @param {{pkey}}
+	 * @return
+	 */
+	{{model_class_name}} find{{model_class_name}}ByKey({{key_type}} {{pkey}});
+
+	/**
+	 * 新增
+	 *
+	 * @param {{instance_name}}
+	 * @return
+	 */
+	{{key_type}} save{{model_class_name}}({{model_class_name}} {{instance_name}});
+
+	/**
+	 * 更新城市信息
+	 *
+	 * @param {{instance_name}}
+	 * @return
+	 */
+	{{key_type}} update{{model_class_name}}({{model_class_name}} {{instance_name}});
+
+	/**
+	 * 根据Key,删除
+	 *
+	 * @param {{pkey}}
+	 * @return
+	 */
+	{{key_type}} delete{{model_class_name}}({{key_type}} {{pkey}});
+}

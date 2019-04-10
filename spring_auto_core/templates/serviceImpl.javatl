@@ -1,0 +1,42 @@
+package {{APP_PACKAGE_NAME}}.service.impl;
+
+import {{APP_PACKAGE_NAME}}.dao.{{model_class_name}}Dao;
+import {{APP_PACKAGE_NAME}}.model.{{model_class_name}};
+import {{APP_PACKAGE_NAME}}.service.{{model_class_name}}Service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class {{model_class_name}}ServiceImpl implements {{model_class_name}}Service {
+
+	@Autowired
+	private {{model_class_name}}Dao {{model_class_name}}Dao;
+
+	@Override
+	public List<{{model_class_name}}> find{{model_class_name}}s() {
+		return {{model_class_name}}Dao.find{{model_class_name}}s();
+	}
+
+	public {{model_class_name}} find{{model_class_name}}ByKey({{key_type}} {{pkey}}) {
+		return {{model_class_name}}Dao.findByKey({{pkey}});
+	}
+
+	@Override
+	public {{key_type}} save{{model_class_name}}({{model_class_name}} {{model_class_name}}) {
+		return {{model_class_name}}Dao.save{{model_class_name}}({{model_class_name}});
+	}
+
+	@Override
+	public {{key_type}} update{{model_class_name}}({{model_class_name}} {{model_class_name}}) {
+		return {{model_class_name}}Dao.update{{model_class_name}}({{model_class_name}});
+	}
+
+	@Override
+	public {{key_type}} delete{{model_class_name}}({{key_type}} {{pkey}}) {
+		return {{model_class_name}}Dao.delete{{model_class_name}}({{pkey}});
+	}
+
+}

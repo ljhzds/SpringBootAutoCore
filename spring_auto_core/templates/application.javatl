@@ -1,0 +1,16 @@
+package {{APP_PACKAGE_NAME}};
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.mybatis.spring.annotation.MapperScan;
+
+
+@SpringBootApplication
+@MapperScan("{{APP_PACKAGE_NAME}}.dao")
+public class {{APP_NAME}}Application {
+
+	public static void spring_gen(String[] args) {
+		SpringApplication.run({{APP_NAME}}Application.class, args);
+	}
+
+}

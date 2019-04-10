@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="{{namespace}}">
+    <resultMap id="BaseResultMap"
+               type="{{model_class_name}}">
+{% for col in column_list%}
+        <result column="{{col.name}}" property="{{col.java_name}}"/>
+{% endfor %}
+    </resultMap>
+
+    <parameterMap id="{{classname}}" type="{{model_class_name}}"/>
+
+    <sql id="Base_Column_List">
+        {{columns_str}}
+    </sql>
+
+    <select id="findByKey" resultMap="BaseResultMap"
+            parameterType="{{key_data_type}}">
+        select
+        <include refid="Base_Column_List"/>
+        from {{table.name}}
+        where {{key_col_name}} = {{key_col_valname}}
+    </select>
+
+    <select id="find{{classname}}s" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from {{table.name}}
+        where 1=1
+    </select>
+
+    <insert id="save{{classname}}" parameterMap="{{classname}}"
+            useGeneratedKeys="true" keyProperty="{{key_col_name}}">
+        insert into
+        {{table.name}} (
+        {{columns_str}}
+        )
+        values
+        (
+        {{columns_java_str}}
+        )
+    </insert>
+
+    <update id="update{{classname}}" parameterMap="{{classname}}">
+        update
+        {{table.name}}
+        set
+        {% for col in column_list%}
+        <if test="{{col.java_name}} != null">
+            {{col.name}} = {{col.java_name|colcondition}}
+        </if>
+        {{ "," if not loop.last }}
+        {% endfor %}
+        where 1=1 and {{key_col_name}} = {{key_col_valname}}
+    </update>
+
+    <delete id="delete{{classname}}ByKey" parameterType="{{key_data_type}}">
+        delete from
+        {{table.name}}
+        where 1=1 and {{key_col_name}} = {{key_col_valname}}
+    </delete>
+</mapper>
