@@ -1,5 +1,5 @@
 .DS_Store
-
+secret_local.py
 # Editor directories and files
 .idea
 .vscode
